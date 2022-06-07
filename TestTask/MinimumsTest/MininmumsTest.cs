@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TestTask;
+using static TestTask.Counting;
 using Xunit;
 
 namespace MinimumsTest
@@ -16,11 +16,11 @@ namespace MinimumsTest
             var shortArray = new int[] { 0 };
 
             Assert.Throws<ArgumentOutOfRangeException>
-                (() => Counting.SumMinimalArrayNumbers(emptyArray));
+                (() => SumMinimalArrayNumbers(emptyArray));
             Assert.Throws<ArgumentOutOfRangeException>
-                (() => Counting.SumMinimalArrayNumbers(shortArray));
+                (() => SumMinimalArrayNumbers(shortArray));
             Assert.Throws<ArgumentNullException>
-                (() => Counting.SumMinimalArrayNumbers(null!));
+                (() => SumMinimalArrayNumbers(null!));
         }
 
 
@@ -28,7 +28,7 @@ namespace MinimumsTest
         [InlineData(new int[] { 4, 0, 3, 19, 492, -10, 1 })]
         public void TestExamlpe(int[] array)
         {
-            Assert.Equal(-10, Counting.SumMinimalArrayNumbers(array));
+            Assert.Equal(-10, SumMinimalArrayNumbers(array));
         }
 
         [Theory]
@@ -38,7 +38,7 @@ namespace MinimumsTest
             IEnumerable<int> testData = Enumerable.Range(min, count);
 
             long expected = min + (long)min + 1;
-            long actual = Counting.SumMinimalArrayNumbers(testData.ToArray<int>()!);
+            long actual = SumMinimalArrayNumbers(testData.ToArray<int>()!);
 
             Assert.Equal(expected, actual);
         }
