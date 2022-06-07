@@ -34,9 +34,8 @@
             {
                 if (array[i] <= superMin)
                 {
-                    int t = superMin;
+                    almostMin = superMin;
                     superMin = array[i];
-                    almostMin = t;
                 }
                 else if (array[i] <= almostMin)
                     almostMin = array[i];
